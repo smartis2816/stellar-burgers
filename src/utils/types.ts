@@ -1,4 +1,4 @@
-export type TIngredient = {
+ export type TIngredient = {
   _id: string;
   name: string;
   type: string;
@@ -38,3 +38,11 @@ export type TUser = {
 };
 
 export type TTabMode = 'bun' | 'sauce' | 'main';
+
+export const enum RequestStatus {
+  Idle = 'Idle',
+  Loading = 'Loading',
+  Success = 'Success',
+  Failed = 'Failed'
+}
+
