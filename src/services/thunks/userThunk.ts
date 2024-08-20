@@ -28,7 +28,7 @@ export const registerUserThunk = createAsyncThunk(
 export const logoutUserThunk = createAsyncThunk(
   'user/logoutUser',
   async () =>  {
-    localStorage.removeItem('refreshToken');
+    localStorage.clear();
     deleteCookie('accessToken');
     return await logoutApi()
   }
