@@ -1,15 +1,15 @@
 import { TConstructorIngredient, TIngredient } from '@utils-types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface TBurgerConstructorState{
-  bun: TConstructorIngredient | null,
-  ingredients: TConstructorIngredient[]
+export interface TBurgerConstructorState {
+  bun: TConstructorIngredient | null;
+  ingredients: TConstructorIngredient[];
 }
 
 export const initialState: TBurgerConstructorState = {
   bun: null,
   ingredients: []
-}
+};
 
 const uuid = () => crypto.randomUUID();
 
@@ -33,16 +33,18 @@ export const burgerConstructorSlice = createSlice({
       state.ingredients.splice(payload, 1);
     },
     moveDown: (state, { payload }: PayloadAction<number>) => {
-      if (payload < state.ingredients.length - 1){
+      if (payload < state.ingredients.length - 1) {
         [state.ingredients[payload + 1], state.ingredients[payload]] = [
-          state.ingredients[payload], state.ingredients[payload + 1]
+          state.ingredients[payload],
+          state.ingredients[payload + 1]
         ];
       }
     },
     moveUp: (state, { payload }: PayloadAction<number>) => {
-      if (payload > 0){
+      if (payload > 0) {
         [state.ingredients[payload - 1], state.ingredients[payload]] = [
-          state.ingredients[payload], state.ingredients[payload - 1]
+          state.ingredients[payload],
+          state.ingredients[payload - 1]
         ];
       }
     },
@@ -52,10 +54,10 @@ export const burgerConstructorSlice = createSlice({
     }
   },
   selectors: {
-    selectBurgerConstructor: (state) => state,
+    selectBurgerConstructor: (state) => state
   }
 });
 
-export  const burgerConstructorReducer = burgerConstructorSlice.reducer;
+export const burgerConstructorReducer = burgerConstructorSlice.reducer;
 export const burgerConstructorSelectors = burgerConstructorSlice.selectors;
 export const burgerConstructorActions = burgerConstructorSlice.actions;

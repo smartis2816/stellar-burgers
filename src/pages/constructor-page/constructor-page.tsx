@@ -7,9 +7,9 @@ import { burgerIngredientsSelectors } from '../../services/slices/burgerIngredie
 
 export const ConstructorPage: FC = () => {
   /** TODO: взять переменную из стора */
-  const isIngredientsLoading = useSelector(
-    burgerIngredientsSelectors.selectBurgerIngredientsStatus
-  ) === 'Loading';
+  const isIngredientsLoading =
+    useSelector(burgerIngredientsSelectors.selectBurgerIngredientsStatus) ===
+    'Loading';
 
   return (
     <>

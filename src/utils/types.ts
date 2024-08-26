@@ -1,4 +1,4 @@
- export type TIngredient = {
+export type TIngredient = {
   _id: string;
   name: string;
   type: string;
@@ -45,4 +45,3 @@ export const enum RequestStatus {
   Success = 'Success',
   Failed = 'Failed'
 }
-

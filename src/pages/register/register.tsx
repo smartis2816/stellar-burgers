@@ -11,11 +11,13 @@ export const Register: FC = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(registerUserThunk({
-      email: email,
-      name: userName,
-      password: password
-    }));
+    dispatch(
+      registerUserThunk({
+        email: email,
+        name: userName,
+        password: password
+      })
+    );
   };
 
   return (

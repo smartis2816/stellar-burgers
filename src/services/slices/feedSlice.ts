@@ -2,7 +2,6 @@ import { RequestStatus, TOrder } from '@utils-types';
 import { createSlice } from '@reduxjs/toolkit';
 import { feedThunk } from '../thunks/feedThunk';
 
-
 export interface TBurgerIngredientsState {
   orders: Array<TOrder> | [];
   total: number;
@@ -14,8 +13,8 @@ export const initialState: TBurgerIngredientsState = {
   orders: [],
   total: 0,
   totalToday: 0,
-  status: RequestStatus.Idle,
-}
+  status: RequestStatus.Idle
+};
 
 export const feedSlice = createSlice({
   name: 'feed',
@@ -25,7 +24,7 @@ export const feedSlice = createSlice({
     selectOrders: (state: TBurgerIngredientsState) => state.orders,
     selectTotal: (state: TBurgerIngredientsState) => state.total,
     selectTotalToday: (state: TBurgerIngredientsState) => state.totalToday,
-    selectStatus: (state: TBurgerIngredientsState) => state.status,
+    selectStatus: (state: TBurgerIngredientsState) => state.status
   },
   extraReducers(builder) {
     builder.addCase(feedThunk.pending, (state) => {

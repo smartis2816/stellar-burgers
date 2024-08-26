@@ -10,10 +10,10 @@ import { burgerIngredientsSelectors } from '../../services/slices/burgerIngredie
 const maxIngredients = 6;
 
 export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
-
-
   /** TODO: взять переменную из стора */
-  const ingredients: TIngredient[] = useSelector(burgerIngredientsSelectors.selectBurgerIngredients);
+  const ingredients: TIngredient[] = useSelector(
+    burgerIngredientsSelectors.selectBurgerIngredients
+  );
   const location = useLocation();
   const orderInfo = useMemo(() => {
     if (!ingredients.length) return null;

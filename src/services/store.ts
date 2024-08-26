@@ -4,7 +4,7 @@ import {
   useDispatch as dispatchHook,
   useSelector as selectorHook
 } from 'react-redux';
-import {RootReducer} from "./RootReducer";
+import { RootReducer } from './RootReducer';
 
 const store = configureStore({
   reducer: RootReducer,

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getFeedsApi } from '@api';
 
-
 export const feedThunk = createAsyncThunk(
   'feed/feedThunk',
   async (_, { rejectWithValue }) => {
@@ -11,4 +10,4 @@ export const feedThunk = createAsyncThunk(
     }
     return feed;
   }
-)
+);

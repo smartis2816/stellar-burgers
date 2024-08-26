@@ -1,6 +1,5 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getOrderByNumberApi, orderBurgerApi } from '@api';
-
 
 export const orderBurger = createAsyncThunk(
   'order/orderBurger',
@@ -9,8 +8,8 @@ export const orderBurger = createAsyncThunk(
 
 export const getOrderByNumber = createAsyncThunk(
   'order/getOrderByNumber',
-  async (number: number, {rejectWithValue}) => {
-    const order = await getOrderByNumberApi(number)
+  async (number: number, { rejectWithValue }) => {
+    const order = await getOrderByNumberApi(number);
     if (!order) {
       return rejectWithValue(order);
     }

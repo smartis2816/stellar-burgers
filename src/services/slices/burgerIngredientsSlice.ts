@@ -2,7 +2,6 @@ import { RequestStatus, TIngredient } from '@utils-types';
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBurgerIngredients } from '../thunks/burgerIngredientsThunk';
 
-
 export interface TBurgerIngredientsState {
   ingredients: Array<TIngredient> | [];
   status: RequestStatus;
@@ -10,8 +9,8 @@ export interface TBurgerIngredientsState {
 
 export const initialState: TBurgerIngredientsState = {
   ingredients: [],
-  status: RequestStatus.Idle,
-}
+  status: RequestStatus.Idle
+};
 
 export const burgerIngredientsSlice = createSlice({
   name: 'burgerIngredients',
@@ -19,19 +18,18 @@ export const burgerIngredientsSlice = createSlice({
   reducers: {},
   selectors: {
     selectBurgerIngredients: (state) => state.ingredients,
-    selectIngredientById: (state, id) => state.ingredients.find(
-      (ingredient) => ingredient._id === id
-    ),
-    selectBurgerIngredientsStatus: (state) => state.status,
+    selectIngredientById: (state, id) =>
+      state.ingredients.find((ingredient) => ingredient._id === id),
+    selectBurgerIngredientsStatus: (state) => state.status
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBurgerIngredients.pending, (state) => {
       state.status = RequestStatus.Loading;
-    })
+    });
     builder.addCase(fetchBurgerIngredients.fulfilled, (state, action) => {
       state.ingredients = action.payload;
       state.status = RequestStatus.Success;
-    })
+    });
     builder.addCase(fetchBurgerIngredients.rejected, (state) => {
       state.status = RequestStatus.Failed;
     });

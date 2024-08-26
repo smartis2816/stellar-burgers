@@ -5,9 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from '../../services/store';
 import { orderBurger } from '../../services/thunks/orderThunk';
 import { userSelectors } from '../../services/slices/userSlice';
-import { burgerConstructorActions, burgerConstructorSelectors } from '../../services/slices/burgerConstructorSlice';
+import {
+  burgerConstructorActions,
+  burgerConstructorSelectors
+} from '../../services/slices/burgerConstructorSlice';
 import { orderActions, orderSelectors } from '../../services/slices/orderSlice';
-
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
@@ -18,23 +20,24 @@ export const BurgerConstructor: FC = () => {
   const constructorItems = useSelector(
     burgerConstructorSelectors.selectBurgerConstructor
   );
-  const orderRequest = useSelector(
-    orderSelectors.selectOrderStatus) === 'Loading';
+  const orderRequest =
+    useSelector(orderSelectors.selectOrderStatus) === 'Loading';
   const orderModalData = useSelector(orderSelectors.selectOrderData);
 
   const onOrderClick = () => {
     if (!constructorItems.bun || orderRequest) return;
-    if (!user){
+    if (!user) {
       navigate('/login');
       return;
     }
-    dispatch(orderBurger([
-      constructorItems.bun._id,
-      ...constructorItems.ingredients.map(
-        (item: TConstructorIngredient) => item._id
-      ),
-      constructorItems.bun._id
-    ])
+    dispatch(
+      orderBurger([
+        constructorItems.bun._id,
+        ...constructorItems.ingredients.map(
+          (item: TConstructorIngredient) => item._id
+        ),
+        constructorItems.bun._id
+      ])
     );
   };
 
