@@ -15,7 +15,7 @@ export const OrderInfo: FC = () => {
     burgerIngredientsSelectors.selectBurgerIngredients
   );
   const dispatch = useDispatch();
-  const number = useParams();
+  const { number } = useParams<{ number: string }>();
 
   useEffect(() => {
     if (number) {

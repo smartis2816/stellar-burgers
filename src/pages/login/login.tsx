@@ -7,7 +7,6 @@ export const Login: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(loginUserThunk({ email, password }));
